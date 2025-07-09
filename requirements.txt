@@ -1,0 +1,6 @@
+scipy==1.11.4
+dalex
+scikit-plot
+streamlit
+joblib
+!pip install numpy==1.24.4 --force-reinstall
