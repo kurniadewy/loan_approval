@@ -45,7 +45,7 @@ This tool helps estimate whether a customer's loan application is likely to be *
 
 💡 This app is made for **everyone**, including non-technical users.
 
-👩‍💻 *Developed with ❤️ by Kurnia Dewy*
+👩‍💻 *Developed with ❤️ by kurniadewy*
 """)
 
 # === 2. How to Use ===
