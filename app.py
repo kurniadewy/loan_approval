@@ -26,17 +26,33 @@ page = st.sidebar.radio("📌 Navigation",
 if page == "🏠 About App":
     st.title("📄 Loan Approval Prediction App")
     st.markdown("""
-    Welcome!  
-    This application helps predict whether a customer's loan will be **approved or rejected**, based on key financial and personal details.
-
-    ### 🔍 Features:
-    - Predict a single customer's loan status.
-    - Upload a CSV file for batch prediction.
-    - Share your review of this app to help improve it.
+    Welcome to the **Loan Approval Prediction App**! 🎯  
+    This tool helps you estimate whether a customer's loan application is likely to be **approved** or **rejected**, based on their personal and financial details.
 
     ---
-    Developed with ❤️ by Kurnia Dewy Isnaini
+    
+    ### 🔍 What Can You Do Here?
+    
+    - 📝 **Single Prediction**  
+      Predict loan status for one customer using a simple input form.
+
+    - 📂 **Batch Prediction**  
+      Upload a CSV file for multiple customers and get predictions at once.
+
+    - 📖 **How to Use**  
+      Learn how to fill in each input clearly, with examples and guidance.
+
+    - 💬 **App Review**  
+      Share your thoughts, feedback, or suggestions to help us improve!
+
+    ---
+
+    💡 This app is designed for **users from all backgrounds** — no technical expertise needed.
+
+    ---
+    👩‍💻 *Developed with ❤️ by kurniadewy*
     """)
+
 
 # === 2. How to Use ===
 elif page == "📖 How to Use":
