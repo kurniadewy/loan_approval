@@ -15,7 +15,7 @@ st.set_page_config(page_title="Loan Approval Application", layout="wide")
 
 
 # === Sidebar Navigation ===
-st.sidebar.image("loan.png", use_column_width=True)
+st.sidebar.image("loan.png", width=180)
 st.sidebar.title("Loan Approval App")
 page = st.sidebar.radio("📌 Navigation", 
                         ["🏠 About App", 
