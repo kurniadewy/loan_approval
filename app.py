@@ -15,6 +15,7 @@ st.set_page_config(page_title="Loan Approval Application", layout="wide")
 st.image("loan.png", width=150)
 
 # === Sidebar Navigation ===
+st.sidebar.image("logo.png", use_column_width=True)
 st.sidebar.title("Loan Approval App")
 page = st.sidebar.radio("📌 Navigation", 
                         ["🏠 About App", 
@@ -26,7 +27,7 @@ page = st.sidebar.radio("📌 Navigation",
 
 # === 1. About App ===
 if page == "🏠 About App":
-    st.markdown("<h2 style='color:#4B8BBE;'>📄 Loan Approval Prediction App</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='color:#4B8BBE;'> Loan Approval Prediction App</h2>", unsafe_allow_html=True)
     st.markdown("""
 Welcome to the **Loan Approval Prediction App**! 🎯  
 This tool helps estimate whether a customer's loan application is likely to be **approved** or **rejected** based on their personal and financial data.
