@@ -14,6 +14,8 @@ label_encoders = joblib.load('label_encoders.pkl')
 st.set_page_config(page_title="Loan Approval App", layout="wide")
 
 # === Sidebar Navigation ===
+st.sidebar.image("https://cdn-icons-png.flaticon.com/512/3135/3135715.png", width=80)
+st.sidebar.title("Loan Approval App")
 page = st.sidebar.radio("📌 Navigation", 
                         ["🏠 About App", 
                          "📖 How to Use", 
@@ -21,175 +23,156 @@ page = st.sidebar.radio("📌 Navigation",
                          "📂 Batch Prediction", 
                          "💬 App Review"
                         ])
+
 # === 1. About App ===
 if page == "🏠 About App":
-    st.title("📄 Loan Approval Prediction App")
+    st.markdown("<h2 style='color:#4B8BBE;'>📄 Loan Approval Prediction App</h2>", unsafe_allow_html=True)
     st.markdown("""
-    Welcome to the **Loan Approval Prediction App**! 🎯  
-    This tool helps you estimate whether a customer's loan application is likely to be **approved** or **rejected**, based on their personal and financial details.
+Welcome to the **Loan Approval Prediction App**! 🎯  
+This tool helps estimate whether a customer's loan application is likely to be **approved** or **rejected** based on their personal and financial data.
 
-    ---
-    
-    ### 🔍 What Can You Do Here?
-    
-    - 📝 **Single Prediction**  
-      Predict loan status for one customer using a simple input form.
+---
 
-    - 📂 **Batch Prediction**  
-      Upload a CSV file for multiple customers and get predictions at once.
+### 🔍 What Can You Do?
 
-    - 📖 **How to Use**  
-      Learn how to fill in each input clearly, with examples and guidance.
+- 📝 **Single Prediction** — Predict loan status for one customer  
+- 📂 **Batch Prediction** — Upload CSV for multiple customers  
+- 📖 **How to Use** — Learn what each field means and how to fill it  
+- 💬 **App Review** — Share your feedback with us  
 
-    - 💬 **App Review**  
-      Share your thoughts, feedback, or suggestions to help us improve!
+---
 
-    ---
+💡 This app is made for **everyone**, including non-technical users.
 
-    💡 This app is designed for **users from all backgrounds** — no technical expertise needed.
-
-    ---
-    👩‍💻 *Developed with ❤️ by kurniadewy*
-    """)
-
+👩‍💻 *Developed with ❤️ by Kurnia Dewy*
+""")
 
 # === 2. How to Use ===
 elif page == "📖 How to Use":
-    st.title("📖 How to Use the Loan Approval App")
+    st.markdown("<h2 style='color:#4B8BBE;'>📖 How to Use This App</h2>", unsafe_allow_html=True)
+
+    st.markdown("### 📝 Single Prediction")
     st.markdown("""
-    This application helps you predict whether a customer's loan will be **approved or rejected** based on their personal and financial information. Here's how to use each section:
+Fill in the form with the following details:
 
-    ### 📝 Single Prediction
-    Fill out the form with details for **one customer**:
-    
-    | Input Field | Description |
-    |-------------|-------------|
-    | **Age** | Age of the applicant (between 18 to 100 years). |
-    | **Gender** | Select **male** or **female**. |
-    | **Education** | Highest level of education (e.g., High School, Bachelor). |
-    | **Home Ownership** | Type of home ownership: <br> - **RENT**: renting a house <br> - **MORTGAGE**: paying installments <br> - **OWN**: fully owned. |
-    | **Previous Loan Default** | Has the applicant ever defaulted on a loan? <br> - **Yes** or **No** |
-    | **Annual Income** | Total yearly income of the applicant (e.g., 50000). |
-    | **Loan Amount** | Amount of money the applicant wants to borrow (e.g., 10000). |
-    | **Loan Interest Rate (%)** | Annual interest rate on the loan (e.g., 15%). |
-    | **Loan % of Income** | Ratio of loan amount to income. <br> Example: if income is 50000 and loan is 10000, this should be **0.2** |
-    | **Credit Score** | A number between **300 to 850** that reflects creditworthiness. |
-    | **Loan Purpose** | Purpose of the loan: <br> - EDUCATION <br> - MEDICAL <br> - VENTURE <br> - PERSONAL <br> - DEBTCONSOLIDATION |
+| Field | Description |
+|-------|-------------|
+| **🎂 Age** | Age of applicant (18–100 years) |
+| **👤 Gender** | Choose *male* or *female* |
+| **🎓 Education** | Highest education level: High School, Bachelor, etc |
+| **🏠 Home Ownership** | Options: `RENT`, `MORTGAGE`, or `OWN` |
+| **❌ Previous Loan Default** | Has user failed to pay a loan before? Yes/No |
+| **💵 Annual Income** | Total yearly income in IDR (e.g., 50000000) |
+| **💰 Loan Amount** | Requested loan amount (e.g., 10000000) |
+| **📈 Interest Rate (%)** | Loan's annual interest rate (e.g., 15%) |
+| **📊 Loan % of Income** | Ratio: Loan ÷ Income. *e.g., 10000000 ÷ 50000000 = 0.2* |
+| **📉 Credit Score** | Number from 300 (bad) to 850 (excellent) |
+| **🎯 Loan Purpose** | Choose from: `EDUCATION`, `VENTURE`, `MEDICAL`, etc |
 
-    After you fill out the form, click **🔍 Predict** to see the result.
+Click **🔍 Predict** to see the result.
 
-    ---
+---
 
-    ### 📂 Batch Prediction
-    Upload a **CSV file** with the same structure for multiple customers.
+### 📂 Batch Prediction
+Upload a CSV file with these exact columns:
 
-    | Required Columns in CSV | |
-    |-------------------------|--|
-    | person_age | person_gender |
-    | person_education | person_income |
-    | person_home_ownership | previous_loan_defaults_on_file |
-    | loan_amnt | loan_int_rate |
-    | loan_percent_income | credit_score |
-    | loan_intent |
+- person_age, person_gender, person_education, person_income  
+- person_home_ownership, previous_loan_defaults_on_file  
+- loan_amnt, loan_int_rate, loan_percent_income  
+- credit_score, loan_intent
 
-    After upload, you’ll see predictions and approval probabilities. You can download the full result.
+You’ll get a downloadable result with predictions.
 
-    ---
+---
 
-    ### 💬 App Review
-    Let us know how helpful this app is and share your suggestions to improve it!
-    """)
+### 💬 App Review
+Share how helpful the app is or give ideas for improvement!
+""")
 
 # === 3. Single Prediction ===
 elif page == "📝 Single Prediction":
-    st.title("📝 Predict One Customer")
+    st.markdown("<h2 style='color:#4B8BBE;'>📝 Predict One Customer</h2>", unsafe_allow_html=True)
+    
+    with st.container():
+        st.markdown("#### 💼 Customer Details")
+        col1, col2 = st.columns(2)
 
-    col1, col2 = st.columns(2)
-    with col1:
-        age = st.slider("Age", 18, 100, 30)
-        gender = st.selectbox("Gender", ["male", "female"])
-        education = st.selectbox("Education", ["High School", "Bachelor", "Master", "Associate"])
-        home = st.selectbox("Home Ownership", ["RENT", "MORTGAGE", "OWN"])
-        default = st.selectbox("Previous Loan Default", ["Yes", "No"])
+        with col1:
+            age = st.slider("🎂 Age", 18, 100, 30)
+            gender = st.selectbox("👤 Gender", ["male", "female"])
+            education = st.selectbox("🎓 Education", ["High School", "Bachelor", "Master", "Associate"])
+            home = st.selectbox("🏠 Home Ownership", ["RENT", "MORTGAGE", "OWN"])
+            default = st.selectbox("❌ Previous Loan Default", ["Yes", "No"])
 
-    with col2:
-        income = st.number_input("Annual Income", 1000, 1000000, 50000, step=1000)
-        loan_amt = st.number_input("Loan Amount", 500, 50000, 10000, step=500)
-        interest = st.slider("Loan Interest Rate (%)", 5.0, 30.0, 15.0)
-        percent_income = st.slider("Loan % of Income", 0.0, 1.0, 0.2)
-        credit_score = st.slider("Credit Score", 300, 850, 650)
-        intent = st.selectbox("Loan Purpose", ["EDUCATION", "MEDICAL", "VENTURE", "PERSONAL", "DEBTCONSOLIDATION"])
+        with col2:
+            income = st.number_input("💵 Annual Income (IDR)", 1000, 1000000000, 50000000, step=1000000)
+            loan_amt = st.number_input("💰 Loan Amount (IDR)", 1000, 100000000, 10000000, step=1000000)
+            interest = st.slider("📈 Interest Rate (%)", 5.0, 30.0, 15.0)
+            percent_income = st.slider("📊 Loan % of Income", 0.0, 1.0, round(loan_amt/income, 2) if income != 0 else 0.2)
+            credit_score = st.slider("📉 Credit Score", 300, 850, 650)
+            intent = st.selectbox("🎯 Loan Purpose", ["EDUCATION", "MEDICAL", "VENTURE", "PERSONAL", "DEBTCONSOLIDATION"])
 
-    if st.button("🔍 Predict"):
-        input_data = pd.DataFrame([{
-            'person_age': age,
-            'person_gender': gender,
-            'person_education': education,
-            'person_income': income,
-            'person_home_ownership': home,
-            'loan_amnt': loan_amt,
-            'loan_intent': intent,
-            'loan_int_rate': interest,
-            'loan_percent_income': percent_income,
-            'credit_score': credit_score,
-            'previous_loan_defaults_on_file': default
-        }])
+        st.markdown("""
+        <div style="background-color:#e0f7fa;padding:15px;border-radius:10px;margin-top:10px">
+        💡 <b>Tips:</b> Jika Anda bingung, coba isi dengan data contoh: income 50 juta, loan 10 juta, maka <b>Loan % of Income</b> adalah <b>0.2</b>.
+        </div>
+        """, unsafe_allow_html=True)
 
-        for col in label_encoders:
-            input_data[col] = label_encoders[col].transform(input_data[col])
+        if st.button("🔍 Predict"):
+            input_data = pd.DataFrame([{
+                'person_age': age,
+                'person_gender': gender,
+                'person_education': education,
+                'person_income': income,
+                'person_home_ownership': home,
+                'loan_amnt': loan_amt,
+                'loan_int_rate': interest,
+                'loan_percent_income': percent_income,
+                'credit_score': credit_score,
+                'loan_intent': intent,
+                'previous_loan_defaults_on_file': default
+            }])
 
-        feature_names = model.get_booster().feature_names
-        input_scaled = scaler.transform(input_data[feature_names])
-        pred = model.predict(input_scaled)[0]
-        prob = model.predict_proba(input_scaled)[0][1]
+            for col in label_encoders:
+                input_data[col] = label_encoders[col].transform(input_data[col])
 
-        st.subheader("🎯 Prediction Result")
-        if pred == 1:
-            st.success("✅ Loan is likely to be Approved.")
-        else:
-            st.error("❌ Loan is likely to be Rejected.")
-        st.metric("Probability of Approval", f"{prob * 100:.2f}%")
+            feature_names = model.get_booster().feature_names
+            input_scaled = scaler.transform(input_data[feature_names])
+            pred = model.predict(input_scaled)[0]
+            prob = model.predict_proba(input_scaled)[0][1]
+
+            st.markdown("### 🎯 Prediction Result")
+            if pred == 1:
+                st.success("✅ The loan is likely to be **Approved**")
+            else:
+                st.error("❌ The loan is likely to be **Rejected**")
+            st.metric("📊 Approval Probability", f"{prob * 100:.2f} %")
 
 # === 4. Batch Prediction ===
 elif page == "📂 Batch Prediction":
-    st.title("📂 Batch Prediction")
-    st.markdown("Upload a CSV file with customer data to get multiple loan predictions.")
-
-    uploaded_file = st.file_uploader("Choose a CSV file", type=["csv"])
+    st.markdown("<h2 style='color:#4B8BBE;'>📂 Batch Prediction</h2>", unsafe_allow_html=True)
+    uploaded_file = st.file_uploader("📁 Upload a CSV file", type=["csv"])
     if uploaded_file:
         df = pd.read_csv(uploaded_file)
-
         for col in label_encoders:
             if col in df.columns:
                 df[col] = label_encoders[col].transform(df[col])
-
         feature_names = model.get_booster().feature_names
         df_scaled = scaler.transform(df[feature_names])
-        preds = model.predict(df_scaled)
-        probs = model.predict_proba(df_scaled)[:, 1]
+        df['prediction'] = model.predict(df_scaled)
+        df['approval_prob'] = model.predict_proba(df_scaled)[:, 1]
 
-        df['prediction'] = preds
-        df['approval_prob'] = probs
+        st.markdown("### 🔎 Preview Results")
+        filter_val = st.slider("📊 Filter by Approval Probability >", 0.0, 1.0, 0.5)
+        st.dataframe(df[df['approval_prob'] > filter_val].head(10))
+        st.download_button("⬇️ Download Results", data=df.to_csv(index=False), file_name="loan_predictions.csv")
 
-        st.markdown("### 🎯 Results Preview")
-        filter_val = st.slider("Show top results with approval probability above", 0.0, 1.0, 0.5)
-        filtered_df = df[df['approval_prob'] >= filter_val]
-        st.dataframe(filtered_df.head(10))
-
-        st.download_button("⬇️ Download Full Results", data=df.to_csv(index=False), file_name="loan_predictions.csv")
-
-# === 4. App Review Page ===
-elif page == "🗨️ App Review":
-    st.title("🗨️ We'd Love Your Review")
-
-    name = st.text_input("Your Name (Optional)")
-    rating = st.slider("How helpful is this app?", 1, 5, 4)
-    comments = st.text_area("Tell us what you liked or suggest improvements:")
-
+# === 5. App Review Page ===
+elif page == "💬 App Review":
+    st.markdown("<h2 style='color:#4B8BBE;'>💬 We'd Love Your Review</h2>", unsafe_allow_html=True)
+    name = st.text_input("👤 Your Name (Optional)")
+    rating = st.slider("🌟 Rate this app", 1, 5, 4)
+    comments = st.text_area("🗨️ Comments or Suggestions:")
     if st.button("📨 Submit Review"):
-        st.success("✅ Thank you for your review!")
-        st.markdown(f"""
-        **Name**: {name if name else "Anonymous"}  
-        **Rating**: {rating} / 5  
-        **Comment**: {comments}
-        """)
+        st.success("✅ Thank you for your feedback!")
+        st.markdown(f"**Name**: {name if name else 'Anonymous'}  \n**Rating**: {rating}/5  \n**Comment**: {comments}")
