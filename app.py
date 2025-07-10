@@ -12,7 +12,7 @@ label_encoders = joblib.load('label_encoders.pkl')
 
 # === Streamlit Config ===
 st.set_page_config(page_title="Loan Approval Application", layout="wide")
-st.image("loan.png", width=150)
+
 
 # === Sidebar Navigation ===
 st.sidebar.image("loan.png", use_column_width=True)
