@@ -19,9 +19,8 @@ page = st.sidebar.radio("📌 Navigation",
                          "📖 How to Use", 
                          "📝 Single Prediction", 
                          "📂 Batch Prediction", 
-                         "💬 App Review"])
-
-
+                         "💬 App Review"
+                        ])
 # === 1. About App ===
 if page == "🏠 About App":
     st.title("📄 Loan Approval Prediction App")
@@ -101,7 +100,7 @@ elif page == "📖 How to Use":
     Let us know how helpful this app is and share your suggestions to improve it!
     """)
 
-# === 2. Single Prediction ===
+# === 3. Single Prediction ===
 elif page == "📝 Single Prediction":
     st.title("📝 Predict One Customer")
 
@@ -151,7 +150,7 @@ elif page == "📝 Single Prediction":
             st.error("❌ Loan is likely to be Rejected.")
         st.metric("Probability of Approval", f"{prob * 100:.2f}%")
 
-# === 3. Batch Prediction ===
+# === 4. Batch Prediction ===
 elif page == "📂 Batch Prediction":
     st.title("📂 Batch Prediction")
     st.markdown("Upload a CSV file with customer data to get multiple loan predictions.")
