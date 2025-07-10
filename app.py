@@ -14,12 +14,13 @@ label_encoders = joblib.load('label_encoders.pkl')
 st.set_page_config(page_title="Loan Approval App", layout="wide")
 
 # === Sidebar Navigation ===
-page = st.sidebar.radio("📌 Navigation", [
-    "🏠 About App",
-    "📝 Single Prediction",
-    "📂 Batch Prediction",
-    "🗨️ App Review"
-])
+page = st.sidebar.radio("📌 Navigation", 
+                        ["🏠 About App", 
+                         "📖 How to Use", 
+                         "📝 Single Prediction", 
+                         "📂 Batch Prediction", 
+                         "💬 App Review"])
+
 
 # === 1. About App ===
 if page == "🏠 About App":
@@ -35,6 +36,53 @@ if page == "🏠 About App":
 
     ---
     Developed with ❤️ by Kurnia Dewy Isnaini
+    """)
+
+# === 2. How to Use ===
+elif page == "📖 How to Use":
+    st.title("📖 How to Use the Loan Approval App")
+    st.markdown("""
+    This application helps you predict whether a customer's loan will be **approved or rejected** based on their personal and financial information. Here's how to use each section:
+
+    ### 📝 Single Prediction
+    Fill out the form with details for **one customer**:
+    
+    | Input Field | Description |
+    |-------------|-------------|
+    | **Age** | Age of the applicant (between 18 to 100 years). |
+    | **Gender** | Select **male** or **female**. |
+    | **Education** | Highest level of education (e.g., High School, Bachelor). |
+    | **Home Ownership** | Type of home ownership: <br> - **RENT**: renting a house <br> - **MORTGAGE**: paying installments <br> - **OWN**: fully owned. |
+    | **Previous Loan Default** | Has the applicant ever defaulted on a loan? <br> - **Yes** or **No** |
+    | **Annual Income** | Total yearly income of the applicant (e.g., 50000). |
+    | **Loan Amount** | Amount of money the applicant wants to borrow (e.g., 10000). |
+    | **Loan Interest Rate (%)** | Annual interest rate on the loan (e.g., 15%). |
+    | **Loan % of Income** | Ratio of loan amount to income. <br> Example: if income is 50000 and loan is 10000, this should be **0.2** |
+    | **Credit Score** | A number between **300 to 850** that reflects creditworthiness. |
+    | **Loan Purpose** | Purpose of the loan: <br> - EDUCATION <br> - MEDICAL <br> - VENTURE <br> - PERSONAL <br> - DEBTCONSOLIDATION |
+
+    After you fill out the form, click **🔍 Predict** to see the result.
+
+    ---
+
+    ### 📂 Batch Prediction
+    Upload a **CSV file** with the same structure for multiple customers.
+
+    | Required Columns in CSV | |
+    |-------------------------|--|
+    | person_age | person_gender |
+    | person_education | person_income |
+    | person_home_ownership | previous_loan_defaults_on_file |
+    | loan_amnt | loan_int_rate |
+    | loan_percent_income | credit_score |
+    | loan_intent |
+
+    After upload, you’ll see predictions and approval probabilities. You can download the full result.
+
+    ---
+
+    ### 💬 App Review
+    Let us know how helpful this app is and share your suggestions to improve it!
     """)
 
 # === 2. Single Prediction ===
