@@ -99,6 +99,7 @@ You can also run this app locally:
 
 ## 📷 Screenshot / Demo
 
+![App Preview](https://github.com/kurniadewy/loan_approval/blob/main/app.png?raw=true)
 > 💡 [Click here to try the app live](https://app-loan-approval.streamlit.app/)
 
 ---
