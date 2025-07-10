@@ -11,10 +11,10 @@ scaler = joblib.load('scaler.pkl')
 label_encoders = joblib.load('label_encoders.pkl')
 
 # === Streamlit Config ===
-st.set_page_config(page_title="Loan Approval App", layout="wide")
+st.set_page_config(page_title="Loan Approval Application", layout="wide")
 
 # === Sidebar Navigation ===
-st.sidebar.image("https://cdn-icons-png.flaticon.com/512/3135/3135715.png", width=80)
+st.sidebar.image("loan.png", width=80)
 st.sidebar.title("Loan Approval App")
 page = st.sidebar.radio("📌 Navigation", 
                         ["🏠 About App", 
@@ -105,8 +105,8 @@ elif page == "📝 Single Prediction":
             default = st.selectbox("❌ Previous Loan Default", ["Yes", "No"])
 
         with col2:
-            income = st.number_input("💵 Annual Income (IDR)", 1000, 1000000000, 50000000, step=1000000)
-            loan_amt = st.number_input("💰 Loan Amount (IDR)", 1000, 100000000, 10000000, step=1000000)
+            income = st.number_input("💵 Annual Income ($)", 1000, 1000000000, 50000000, step=1000000)
+            loan_amt = st.number_input("💰 Loan Amount ($)", 1000, 100000000, 10000000, step=1000000)
             interest = st.slider("📈 Interest Rate (%)", 5.0, 30.0, 15.0)
             percent_income = st.slider("📊 Loan % of Income", 0.0, 1.0, round(loan_amt/income, 2) if income != 0 else 0.2)
             credit_score = st.slider("📉 Credit Score", 300, 850, 650)
@@ -114,7 +114,7 @@ elif page == "📝 Single Prediction":
 
         st.markdown("""
         <div style="background-color:#e0f7fa;padding:15px;border-radius:10px;margin-top:10px">
-        💡 <b>Tips:</b> Jika Anda bingung, coba isi dengan data contoh: income 50 juta, loan 10 juta, maka <b>Loan % of Income</b> adalah <b>0.2</b>.
+        💡 <b>Tips:</b> If you are confused, try filling it in with example data: income 50 million, loan 10 million, then <b>Loan % Income</b> is <b>0.2</b>.
         </div>
         """, unsafe_allow_html=True)
 
